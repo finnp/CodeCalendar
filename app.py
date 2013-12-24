@@ -17,3 +17,7 @@ def showdate(month, day):
         return open(file_path).read()
     except IOError:
         return 'Not found', 404
+
+@app.route('/humans.txt')
+def humans():
+    return 'Finn @finnpauls'
