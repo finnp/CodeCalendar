@@ -1,5 +1,5 @@
 import os
-from grip import export
+from grip import render_content
 
 # Compile markdown to html (this could exceed the github api rate limits)
 for m in range(1,12):
@@ -10,7 +10,5 @@ for m in range(1,12):
 		to_path = 'html/' + month + '-' + day[0:2] + '.html'
 		print 'Converting ' + from_path + ' to ' + to_path + '...'
 
-		export(	path=from_path
-				,gfm=True
-				,out_filename=to_path
-		)
+		html_output = render_content(open(from_path).read(), gfm = True)
+		open(to_path, 'w').write(html_output.encode('utf-8'))

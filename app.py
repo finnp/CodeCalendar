@@ -15,12 +15,16 @@ def showdate(month, day):
         else:
             show = datetime(datetime.now().year, month, day)
         file_path = show.strftime('html/%m-%d.html')
-        try: 
-            return open(file_path).read()
-        except IOError:
-            return 'Not found', 404
+        content = open(file_path).read()
+        return render_template('template.html', daytext = content.decode('utf-8'))
+
     
 
 @app.route('/humans.txt')
 def humans():
-    return 'Finn @finnpauls'
+    return 'Finn @finnpauls, Julia, @juliaguar'
+
+# Development (Does not work in gunicorn production)
+app.config['DEBUG'] = True
+if __name__ == '__main__':
+    app.run()
