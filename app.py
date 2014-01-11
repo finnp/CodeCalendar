@@ -1,6 +1,6 @@
 import os
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -16,7 +16,12 @@ def showdate(month, day):
             show = datetime(datetime.now().year, month, day)
         file_path = show.strftime('html/%m-%d.html')
         content = open(file_path).read()
-        return render_template('template.html', daytext = content.decode('utf-8'))
+        return render_template('template.html', 
+            daytext = content.decode('utf-8'),
+            day_before = (show  - timedelta(days = 1)).strftime('%m/%d'),
+            today = (datetime.now()).strftime('%m/%d'),
+            day_next = (show  + timedelta(days = 1)).strftime('%m/%d')
+        )
 
     
 

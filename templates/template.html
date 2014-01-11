@@ -4,9 +4,16 @@
   <meta charset="utf-8" />
   <title>CodeCalendar</title>
   <style>
+	body {
+	  	font-family: verdana;
+	  }
     .previewPage {
       margin: 64px auto;
       width: 920px;
+    }
+    .arrows {
+    	font-size: 2em;
+    	text-decoration: none;
     }
   </style>
 </head>
@@ -17,6 +24,9 @@
       <article class="markdown-body entry-content">
 		{{ daytext|safe }}
       </article>
+      <a class="arrows" href="/{{day_before}}">&#8610;</a>
+      <a class="arrows" href="/{{today}}">&#9822;</a>
+      <a class="arrows" href="/{{day_next}}">&#8611;</a>
     </div>
   </div>
   
