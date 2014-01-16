@@ -27,7 +27,7 @@ def showdate(month, day):
 
 @app.route('/humans.txt')
 def humans():
-    return 'Finn @finnpauls, Julia, @juliaguar'
+    return 'Finn @finnpauls, mokus @juliaguar'
 
 # Development (Does not work in gunicorn production)
 app.config['DEBUG'] = True
