@@ -14,14 +14,26 @@ def showdate(month, day):
             show = datetime.now()
         else:
             show = datetime(datetime.now().year, month, day)
-        file_path = show.strftime('html/%m-%d.html')
-        content = open(file_path).read()
-        return render_template('template.html', 
-            daytext = content.decode('utf-8'),
-            day_before = (show  - timedelta(days = 1)).strftime('%m/%d'),
-            today = (datetime.now()).strftime('%m/%d'),
-            day_next = (show  + timedelta(days = 1)).strftime('%m/%d')
-        )
+
+        if datetime.now() < show:
+            return 'This day is in the future, do not peek!'
+        else:
+            file_path = show.strftime('html/%m-%d.html')
+            content = open(file_path).read()
+
+            date_next = show  + timedelta(days = 1)
+
+            if datetime.now() < date_next:
+                day_next = False
+            else:
+                day_next = date_next.strftime('%m/%d')
+
+            return render_template('template.html', 
+                daytext = content.decode('utf-8'),
+                day_before = (show  - timedelta(days = 1)).strftime('%m/%d'),
+                today = (datetime.now()).strftime('%m/%d'),
+                day_next = day_next
+            )
 
     
 

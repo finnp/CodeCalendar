@@ -27,7 +27,9 @@
       </article>
       <a class="arrows" href="/{{day_before}}">&#8610;</a>
       <a class="arrows" href="/{{today}}">&#9822;</a>
-      <a class="arrows" href="/{{day_next}}">&#8611;</a>
+      {% if day_next %}
+        <a class="arrows" href="/{{day_next}}">&#8611;</a>
+      {% endif %}
     </div>
   </div>
   
