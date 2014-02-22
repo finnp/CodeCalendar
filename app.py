@@ -19,8 +19,11 @@ def showdate(month, day):
             return 'This day is in the future, do not peek!'
         else:
             file_path = show.strftime('html/%m-%d.html')
-            content = open(file_path).read()
-
+            try:
+                content = open(file_path).read()
+            except IOError as e:
+                content = "Day not found. Sorry! Try again later."
+            
             date_next = show  + timedelta(days = 1)
 
             if datetime.now() < date_next:
