@@ -2,7 +2,7 @@ import os
 from grip import render_content
 
 # Compile markdown to html (this could exceed the github api rate limits)
-for m in range(2,3):
+for m in range(3,4):
 	month = '0' + str(m) if m < 10 else str(m)
 	days = os.listdir('months/' + month + '/')
 	for day in days:
