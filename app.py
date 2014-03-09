@@ -35,7 +35,8 @@ def showdate(month, day):
                 daytext = content.decode('utf-8'),
                 day_before = (show  - timedelta(days = 1)).strftime('%m/%d'),
                 today = (datetime.now()).strftime('%m/%d'),
-                day_next = day_next
+                day_next = day_next,
+                day_current = show.strftime('%m/%d')
             )
 
     

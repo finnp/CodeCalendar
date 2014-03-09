@@ -34,7 +34,7 @@
         <a class="arrows" href="/{{day_next}}">&#8611;</a>
       {% endif %}
 
-      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-url="http://codecal.herokuapp.com/{{day_current}}">Tweet</a>
     </div>
   </div>
 
@@ -46,6 +46,7 @@
     if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
     fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
   </script>
+
 
 </body>
 </html>
